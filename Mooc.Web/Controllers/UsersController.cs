@@ -1,0 +1,136 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using Mooc.DataAccess.Context;
+using Mooc.DataAccess.Entities;
+using Mooc.DataAccess.Service;
+using Mooc.Models.ViewModels;
+
+namespace Mooc.Web.Controllers
+{
+    public class UsersController : Controller
+    {
+        //private DataContext db = new DataContext();
+        private IUserService _userService;
+        public UsersController(IUserService userService)
+        {
+            this._userService = userService;
+        }
+
+        // GET: Users
+        public ActionResult Index()
+        {
+            var list = _userService.GetList();
+            return View(list);
+        }
+
+        // GET: Users/Details/5
+        public async Task<ActionResult> Details(long? id)
+        {
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            //User user = await db.Users.FindAsync(id);
+            //if (user == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            //return View(user);
+
+            return View();
+        }
+
+        // GET: Users/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Users/Create
+        // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
+        // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id,UserName,PassWord,Email,UserState,RoleType,AddTime")] UserViewModel user)
+        {
+            if (ModelState.IsValid)
+            {
+                this._userService.Add(user);
+            }
+
+            return View(user);
+        }
+
+        // GET: Users/Edit/5
+        public async Task<ActionResult> Edit(long? id)
+        {
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            //User user = await db.Users.FindAsync(id);
+            //if (user == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            //return View(user);
+
+            return View();
+        }
+
+        // POST: Users/Edit/5
+        // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
+        // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit([Bind(Include = "Id,UserName,PassWord,Email,UserState,RoleType,AddTime")] User user)
+        {
+            //if (ModelState.IsValid)
+            //{
+            //    db.Entry(user).State = EntityState.Modified;
+            //    await db.SaveChangesAsync();
+            //    return RedirectToAction("Index");
+            //}
+            //return View(user);
+
+            return View();
+        }
+
+        // GET: Users/Delete/5
+        public async Task<ActionResult> Delete(long? id)
+        {
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            //User user = await db.Users.FindAsync(id);
+            //if (user == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            //return View(user);
+
+            return View();
+        }
+
+        // POST: Users/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteConfirmed(long id)
+        {
+            //User user = await db.Users.FindAsync(id);
+            //db.Users.Remove(user);
+            //await db.SaveChangesAsync();
+            //return RedirectToAction("Index");
+
+            return View();
+        }
+    }
+}
