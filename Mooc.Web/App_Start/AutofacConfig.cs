@@ -26,7 +26,7 @@ namespace Mooc.Web.App_Start
             var builder = new ContainerBuilder();
             var config = GlobalConfiguration.Configuration;
             var baseType = typeof(IDependency);
-            builder.RegisterType<DataContext>().AsSelf().InstancePerLifetimeScope();
+            //builder.RegisterType<DataContext>().AsSelf().InstancePerLifetimeScope();
             var assemblys = BuildManager.GetReferencedAssemblies().Cast<Assembly>();
             builder.RegisterAssemblyTypes(assemblys.ToArray()).Where(t => baseType.IsAssignableFrom(t) && t != baseType).AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterControllers(Assembly.GetExecutingAssembly());

@@ -71,7 +71,6 @@
   <ItemGroup>
     <Compile Include="AutoMapper\MapperProfile.cs" />
     <Compile Include="Context\DataContext.cs" />
-    <Compile Include="Context\DataContextProvider.cs" />
     <Compile Include="Context\IDataContextProvider.cs" />
     <Compile Include="Entities\EntityConfig\UserDbModelBuilder.cs" />
     <Compile Include="Entities\User.cs" />

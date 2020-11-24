@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Mooc.DataAccess.Context;
 using Mooc.DataAccess.Service;
+using Mooc.Web.App_Start;
 using System;
 using System.Collections.Generic;
 
@@ -12,20 +13,25 @@ using System.Web.Compilation;
 
 namespace Mooc.Web.Tests
 {
-    public static class AutofacConfigHelper
+    public static class UTestConfigHelper
     {
         static IContainer _build;
-        static AutofacConfigHelper()
+        static UTestConfigHelper()
         {
+
+
             var builder = new ContainerBuilder();
 
             var baseType = typeof(IDependency);
-            builder.RegisterType<DataContext>().AsSelf().InstancePerLifetimeScope();
+            //builder.RegisterType<DataContext>().AsSelf().InstancePerLifetimeScope();
             //var assemblys = BuildManager.GetReferencedAssemblies().Cast<Assembly>();
             var assemblys = new Assembly[] { baseType.Assembly };
             builder.RegisterAssemblyTypes(assemblys.ToArray()).Where(t => baseType.IsAssignableFrom(t) && t != baseType).AsImplementedInterfaces().InstancePerLifetimeScope();
-
+            //builder.RegisterType<DataContextProviderTest>().As<IDataContextProvider>().InstancePerLifetimeScope();
             _build = builder.Build();
+
+
+            AutoMapperConfig.Config();
         }
 
 

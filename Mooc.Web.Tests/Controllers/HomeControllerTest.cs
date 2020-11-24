@@ -18,12 +18,10 @@ namespace Mooc.Web.Tests.Controllers
         {
             // Arrange
 
-            IUserService userService= AutofacConfigHelper.ResolveServcie<IUserService>();
+            IUserService userService = UTestConfigHelper.ResolveServcie<IUserService>();
             HomeController controller = new HomeController(userService);
-
             // Act
             ViewResult result = controller.Index() as ViewResult;
-
             // Assert
             Assert.IsNotNull(result);
         }

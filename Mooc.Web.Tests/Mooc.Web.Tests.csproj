@@ -38,6 +38,12 @@
     <Reference Include="Autofac, Version=4.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.5.0\lib\net45\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework">
       <HintPath>..\packages\MSTest.TestFramework.1.2.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
@@ -92,7 +98,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutofacConfigHelper.cs" />
+    <Compile Include="UTestConfigHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
@@ -106,6 +112,10 @@
     <ProjectReference Include="..\Mooc.DataAccess\Mooc.DataAccess.csproj">
       <Project>{9532E425-15BF-4FB1-9A5B-763467400463}</Project>
       <Name>Mooc.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mooc.Models\Mooc.Models.csproj">
+      <Project>{83001F9C-34AC-4785-8EA3-7B639B13CD9E}</Project>
+      <Name>Mooc.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mooc.Web\Mooc.Web.csproj">
       <Project>{59C5CC1A-B1C0-4C91-A92F-CE70D574A061}</Project>

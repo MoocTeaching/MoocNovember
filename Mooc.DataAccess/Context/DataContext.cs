@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace Mooc.DataAccess.Context
 {
-    public class DataContext : DbContext
+
+    public class DataContext : DbContext, IDataContextProvider
     {
         public DataContext() : base(GetConnectionString())
         {
@@ -28,6 +29,11 @@ namespace Mooc.DataAccess.Context
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.UserModelBuilder();
+        }
+
+        public DataContext GetDataContext()
+        {
+            return this;
         }
     }
 }

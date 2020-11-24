@@ -7,16 +7,31 @@ using System.Threading.Tasks;
 
 namespace Mooc.DataAccess.Context
 {
-   public class DataContextProvider : IDataContextProvider, IDependency
+    public class DataContextProvider : IDataContextProvider, IDependency, IDisposable
     {
-
-        public DataContextProvider(DataContext dataContext)
+        private DataContext _dataContext;
+        public DataContextProvider(string connectString = "")
         {
-
+            _dataContext = new DataContext(connectString);
         }
+
+
+        public void Dispose()
+        {
+            Dispose(true);
+        }
+        public void Dispose(bool isDispose)
+        {
+            if (_dataContext != null)
+            {
+                _dataContext.Dispose();
+                _dataContext = null;
+            }
+        }
+
         public DataContext GetDataContext()
         {
-            return null;
+            return this._dataContext;
         }
     }
 }

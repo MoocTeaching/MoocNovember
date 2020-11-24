@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Mooc.DataAccess.Service
 {
-    public interface IUserService:IDependency
+    public interface IUserService : IDependency
     {
         bool Add(UserViewModel userViewModel);
         List<UserViewModel> GetList();

@@ -15,9 +15,9 @@ namespace Mooc.DataAccess.Service
     {
         private DataContext _db;
         //private IMapper _mapper;
-        public UserService(DataContext dataContext)
+        public UserService(IDataContextProvider  dataContextProvider)
         {
-            this._db = dataContext;
+            this._db = dataContextProvider.GetDataContext();
             //this._mapper = mapper;
         }
 
