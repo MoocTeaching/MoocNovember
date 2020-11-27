@@ -1,16 +1,12 @@
-﻿using Mooc.DataAccess.Entities;
-using Mooc.Models.ViewModels;
-using System;
+﻿using Mooc.Models.Dtos.User;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mooc.DataAccess.Service
 {
     public interface IUserService : IDependency
     {
-        bool Add(UserViewModel userViewModel);
-        List<UserViewModel> GetList();
+        bool Add(CreateOrUpdateUserDto  createOrUpdateUserDto);
+
+        List<UserDto> GetList();
     }
 }

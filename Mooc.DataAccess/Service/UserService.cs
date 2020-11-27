@@ -1,13 +1,9 @@
 ﻿using AutoMapper;
 using Mooc.DataAccess.Context;
 using Mooc.DataAccess.Entities;
-using Mooc.Models.ViewModels;
-using System;
+using Mooc.Models.Dtos.User;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mooc.DataAccess.Service
 {
@@ -21,17 +17,17 @@ namespace Mooc.DataAccess.Service
             //this._mapper = mapper;
         }
 
-        public bool Add(UserViewModel userViewModel)
+        public bool Add(CreateOrUpdateUserDto  createOrUpdateUserDto)
         {
-            var user = Mapper.Map<User>(userViewModel);
+            var user = Mapper.Map<User>(createOrUpdateUserDto);
             this._db.Users.Add(user);
             return this._db.SaveChanges() > 0;
         }
 
-        public List<UserViewModel> GetList()
+        public List<UserDto> GetList()
         {
             var list = _db.Users.ToList();
-            return Mapper.Map<List<UserViewModel>>(list);
+            return Mapper.Map<List<UserDto>>(list);
         }
     }
 }

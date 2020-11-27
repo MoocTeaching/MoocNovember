@@ -6,14 +6,14 @@ namespace Mooc.DataAccess.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class userUpdate2 : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
+    public sealed partial class userUpdate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(userUpdate2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(userUpdate));
         
         string IMigrationMetadata.Id
         {
-            get { return "202011220254078_userUpdate2"; }
+            get { return "202011261314447_userUpdate"; }
         }
         
         string IMigrationMetadata.Source

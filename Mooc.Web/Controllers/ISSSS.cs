@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mooc.DataAccess.Context
+namespace Mooc.Web.Controllers
 {
-    public interface IDataContextProvider : IDependency
+   public interface ISSSS: IDependency
     {
-        DataContext GetDataContext();
+
+
     }
 }

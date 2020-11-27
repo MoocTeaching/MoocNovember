@@ -1,11 +1,6 @@
 ﻿using AutoMapper;
 using Mooc.DataAccess.Entities;
-using Mooc.Models.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Mooc.Models.Dtos.User;
 
 namespace Mooc.DataAccess.AutoMapper
 {
@@ -13,8 +8,9 @@ namespace Mooc.DataAccess.AutoMapper
     {
         public MapperProfile()
         {
-            CreateMap<User, UserViewModel>();
-            CreateMap<UserViewModel, User>();
+            //CreateMap<User, UserDto>().ForMember(c => c.Email111, p => p.MapFrom(x => x.Email));
+            CreateMap<User, UserDto>();
+            CreateMap<CreateOrUpdateUserDto, User>();
         }
     }
 }

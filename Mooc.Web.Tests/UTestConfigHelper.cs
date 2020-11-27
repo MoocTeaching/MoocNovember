@@ -18,10 +18,7 @@ namespace Mooc.Web.Tests
         static IContainer _build;
         static UTestConfigHelper()
         {
-
-
             var builder = new ContainerBuilder();
-
             var baseType = typeof(IDependency);
             //builder.RegisterType<DataContext>().AsSelf().InstancePerLifetimeScope();
             //var assemblys = BuildManager.GetReferencedAssemblies().Cast<Assembly>();
@@ -30,10 +27,8 @@ namespace Mooc.Web.Tests
             //builder.RegisterType<DataContextProviderTest>().As<IDataContextProvider>().InstancePerLifetimeScope();
             _build = builder.Build();
 
-
             AutoMapperConfig.Config();
         }
-
 
         public static T ResolveServcie<T>()
         {

@@ -11,8 +11,10 @@ namespace Mooc.DataAccess.Entities.EntityConfig
     {
         public static void UserModelBuilder(this DbModelBuilder dbModelBuilder)
         {
-            dbModelBuilder.Entity<User>().Property(u => u.UserName).IsRequired().HasMaxLength(200);
-            dbModelBuilder.Entity<User>().Property(u => u.PassWord).IsRequired().HasMaxLength(200);
+            dbModelBuilder.Entity<User>().ToTable(nameof(User));
+            dbModelBuilder.Entity<User>().Property(u => u.UserName).IsRequired().HasMaxLength(100);
+            dbModelBuilder.Entity<User>().Property(u => u.PassWord).IsRequired().HasMaxLength(100);
+            dbModelBuilder.Entity<User>().Property(u => u.Email).HasMaxLength(100);
         }
     }
 }

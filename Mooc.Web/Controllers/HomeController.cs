@@ -1,9 +1,6 @@
 ﻿using Mooc.DataAccess.Service;
-using Mooc.Models.ViewModels;
-using System;
+using Mooc.Models.Dtos.User;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Mooc.Web.Controllers
@@ -15,10 +12,13 @@ namespace Mooc.Web.Controllers
         {
             this._userService = userService;
         }
+
+      
         public ActionResult Index()
         {
             var list = this._userService.GetList();
-            List<UserViewModel> models = AutoMapper.Mapper.Map<List<UserViewModel>>(list);
+            List<UserDto> models = AutoMapper.Mapper.Map<List<UserDto>>(list);
+
             return View();
         }
 

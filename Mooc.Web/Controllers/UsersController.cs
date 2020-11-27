@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using Mooc.DataAccess.Context;
-using Mooc.DataAccess.Entities;
+﻿using Mooc.DataAccess.Entities;
 using Mooc.DataAccess.Service;
-using Mooc.Models.ViewModels;
+using Mooc.Models.Dtos.User;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace Mooc.Web.Controllers
 {
@@ -27,6 +19,7 @@ namespace Mooc.Web.Controllers
         public ActionResult Index()
         {
             var list = _userService.GetList();
+
             return View(list);
         }
 
@@ -58,7 +51,7 @@ namespace Mooc.Web.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,UserName,PassWord,Email,UserState,RoleType,AddTime")] UserViewModel user)
+        public ActionResult Create([Bind(Include = "Id,UserName,PassWord,Email,UserState,RoleType,AddTime")] CreateOrUpdateUserDto user)
         {
             if (ModelState.IsValid)
             {

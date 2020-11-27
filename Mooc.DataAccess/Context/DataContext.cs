@@ -10,12 +10,18 @@ using System.Threading.Tasks;
 
 namespace Mooc.DataAccess.Context
 {
-
     public class DataContext : DbContext, IDataContextProvider
     {
-        public DataContext() : base(GetConnectionString())
+
+        public DataContext(): base(GetConnectionString())
         {
+           
         }
+
+        //public DataContext() 
+        //{
+        //    Database.Connection.ConnectionString= ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        //}
 
         private static string GetConnectionString()
         {
@@ -24,11 +30,14 @@ namespace Mooc.DataAccess.Context
 
         public DbSet<User> Users { get; set; }
 
+        public DbSet<Student> Students { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.UserModelBuilder();
+            modelBuilder.StudentModelBuilder();
         }
 
         public DataContext GetDataContext()
