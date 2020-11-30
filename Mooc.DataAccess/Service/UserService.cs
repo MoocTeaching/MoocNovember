@@ -29,5 +29,6 @@ namespace Mooc.DataAccess.Service
             var list = _db.Users.ToList();
             return Mapper.Map<List<UserDto>>(list);
         }
+
     }
 }

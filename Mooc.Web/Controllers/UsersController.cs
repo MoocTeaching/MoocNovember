@@ -1,6 +1,8 @@
 ﻿using Mooc.DataAccess.Entities;
 using Mooc.DataAccess.Service;
 using Mooc.Models.Dtos.User;
+using System.Data.Entity;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -26,18 +28,14 @@ namespace Mooc.Web.Controllers
         // GET: Users/Details/5
         public async Task<ActionResult> Details(long? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-            //User user = await db.Users.FindAsync(id);
-            //if (user == null)
-            //{
-            //    return HttpNotFound();
-            //}
-            //return View(user);
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var list = _userService.GetList();
 
-            return View();
+            UserDto user = list.Find(a => a.Id == id);
+            return View(user);
         }
 
         // GET: Users/Create
@@ -85,15 +83,19 @@ namespace Mooc.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Id,UserName,PassWord,Email,UserState,RoleType,AddTime")] User user)
         {
-            //if (ModelState.IsValid)
+             //if (id == null)
             //{
-            //    db.Entry(user).State = EntityState.Modified;
-            //    await db.SaveChangesAsync();
-            //    return RedirectToAction("Index");
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            //User user = await db.Users.FindAsync(id);
+            //if (user == null)
+            //{
+            //    return HttpNotFound();
             //}
             //return View(user);
 
             return View();
+
         }
 
         // GET: Users/Delete/5
