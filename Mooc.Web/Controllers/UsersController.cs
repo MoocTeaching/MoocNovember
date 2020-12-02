@@ -26,15 +26,23 @@ namespace Mooc.Web.Controllers
         }
 
         // GET: Users/Details/5
-        public async Task<ActionResult> Details(long? id)
+        public async Task<ActionResult> Details(int? id)
         {
-            if(id == null)
+            if (!id.HasValue)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var list = _userService.GetList();
 
-            UserDto user = list.Find(a => a.Id == id);
+            var user = await this._userService.GetUser(id.Value);
+
+            if (user == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+
+            }
+            //var list = _userService.GetList();
+
+            //UserDto user = list.Find(a => a.Id == id);
             return View(user);
         }
 
@@ -60,7 +68,7 @@ namespace Mooc.Web.Controllers
         }
 
         // GET: Users/Edit/5
-        public async Task<ActionResult> Edit(long? id)
+        public async Task<ActionResult> Edit(int? id)
         {
             //if (id == null)
             //{
@@ -81,9 +89,9 @@ namespace Mooc.Web.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,UserName,PassWord,Email,UserState,RoleType,AddTime")] User user)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,UserName,PassWord,Email,UserState,RoleType,AddTime")] UserDto user)
         {
-             //if (id == null)
+            //if (id == null)
             //{
             //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             //}
@@ -99,7 +107,7 @@ namespace Mooc.Web.Controllers
         }
 
         // GET: Users/Delete/5
-        public async Task<ActionResult> Delete(long? id)
+        public async Task<ActionResult> Delete(int? id)
         {
             //if (id == null)
             //{
@@ -118,7 +126,7 @@ namespace Mooc.Web.Controllers
         // POST: Users/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(long id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
             //User user = await db.Users.FindAsync(id);
             //db.Users.Remove(user);

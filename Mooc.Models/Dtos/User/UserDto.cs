@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Mooc.Models.Dtos.User
 {
-    public class UserDto: BaseEntityDto
+    public class UserDto : BaseEntityDto
     {
 
         [Display(Name = "用户名")]
         public string UserName { get; set; }
 
-       
+
         [DataType(DataType.Password)]
         public string PassWord { get; set; }
 
@@ -27,9 +27,6 @@ namespace Mooc.Models.Dtos.User
 
         public DateTime? AddTime { get; set; }
 
-
-
-
-      public string Email111 { get; set; }
-    } 
+        public string Email111 { get; set; }
+    }
 }

@@ -3,7 +3,9 @@ using Mooc.DataAccess.Context;
 using Mooc.DataAccess.Entities;
 using Mooc.Models.Dtos.User;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Mooc.DataAccess.Service
 {
@@ -11,13 +13,13 @@ namespace Mooc.DataAccess.Service
     {
         private DataContext _db;
         //private IMapper _mapper;
-        public UserService(IDataContextProvider  dataContextProvider)
+        public UserService(IDataContextProvider dataContextProvider)
         {
             this._db = dataContextProvider.GetDataContext();
             //this._mapper = mapper;
         }
 
-        public bool Add(CreateOrUpdateUserDto  createOrUpdateUserDto)
+        public bool Add(CreateOrUpdateUserDto createOrUpdateUserDto)
         {
             var user = Mapper.Map<User>(createOrUpdateUserDto);
             this._db.Users.Add(user);
@@ -30,5 +32,13 @@ namespace Mooc.DataAccess.Service
             return Mapper.Map<List<UserDto>>(list);
         }
 
+        public async Task<UserDto> GetUser(int id)
+        {
+            var user =await _db.Users.FirstOrDefaultAsync(p => p.Id == id);
+            if (user==null)
+                return null;
+            return Mapper.Map<UserDto>(user);
+        }
+       
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Mooc.Models.Dtos.User;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Mooc.DataAccess.Service
 {
@@ -8,5 +9,9 @@ namespace Mooc.DataAccess.Service
         bool Add(CreateOrUpdateUserDto  createOrUpdateUserDto);
 
         List<UserDto> GetList();
+
+        Task<UserDto> GetUser(int id);
+
+        //List<UserDto> GetUser(int id);
     }
 }
