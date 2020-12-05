@@ -80,8 +80,21 @@ namespace Mooc.Web.Controllers
             //    return HttpNotFound();
             //}
             //return View(user);
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = await this._userService.GetEditUser(id.Value);
 
-            return View();
+            if (user == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+
+            }
+            //var list = _userService.GetList();
+
+            //UserDto user = list.Find(a => a.Id == id);
+            return View(user);
         }
 
         // POST: Users/Edit/5
@@ -89,20 +102,14 @@ namespace Mooc.Web.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,UserName,PassWord,Email,UserState,RoleType,AddTime")] UserDto user)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,UserName,PassWord,Email,UserState,RoleType,AddTime")] CreateOrUpdateUserDto user)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-            //User user = await db.Users.FindAsync(id);
-            //if (user == null)
-            //{
-            //    return HttpNotFound();
-            //}
-            //return View(user);
+            if (ModelState.IsValid)
+            {
+                this._userService.Update(user);
+            }
 
-            return View();
+            return View(user);
 
         }
 
@@ -119,8 +126,17 @@ namespace Mooc.Web.Controllers
             //    return HttpNotFound();
             //}
             //return View(user);
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = await this._userService.GetEditUser(id.Value);
 
-            return View();
+
+
+
+
+            return View(user);
         }
 
         // POST: Users/Delete/5
@@ -128,12 +144,18 @@ namespace Mooc.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            //User user = await db.Users.FindAsync(id);
-            //db.Users.Remove(user);
-            //await db.SaveChangesAsync();
-            //return RedirectToAction("Index");
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = await this._userService.GetEditUser(id);
 
-            return View();
+            if (ModelState.IsValid)
+            {
+                this._userService.Delete(user);
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }

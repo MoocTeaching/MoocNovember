@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Mooc.DataAccess.Entities
 {
-    public class User: BaseEntity
-    {        
+    public class User : BaseEntity
+    {
         public string UserName { get; set; }
 
         public string PassWord { get; set; }
@@ -20,5 +20,24 @@ namespace Mooc.DataAccess.Entities
         public int RoleType { get; set; }
 
         public DateTime? AddTime { get; set; }
+
+        public string Gender { get; set; }
+
+        public string StudentNo { get; set; }
+
+        public string Faulty { get; set; }
+
+        public string Major { get; set; }
+
+        public int CountryId { get; set; }
+
+        public string ProfessorGuid { get; set; }
+
+        public int ProfessorId { get; set; }
+
+        public string PhotoFileName { get; set; }
+
+        public string NickName { get; set; }
+
     }
 }

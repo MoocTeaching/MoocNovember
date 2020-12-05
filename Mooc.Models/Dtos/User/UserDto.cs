@@ -28,5 +28,24 @@ namespace Mooc.Models.Dtos.User
         public DateTime? AddTime { get; set; }
 
         public string Email111 { get; set; }
+
+        public string Gender { get; set; }
+
+
+        public string StudentNo { get; set; }
+
+        public string Faulty { get; set; }
+
+        public string Major { get; set; }
+
+        public int CountryId { get; set; }
+
+        public string ProfessorGuid { get; set; }
+
+        public int ProfessorId { get; set; }
+
+        public string PhotoFileName { get; set; }
+
+        public string NickName { get; set; }
     }
 }
