@@ -25,10 +25,33 @@ namespace Mooc.Models.Dtos.User
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
+        //[Required(ErrorMessage = "User Status Need")]
         public int UserState { get; set; }
 
+        //[Required(ErrorMessage = "Role Type Need")]
         public int RoleType { get; set; }
 
         public DateTime? AddTime { get; set; }
+
+        //[Required(ErrorMessage ="Gender Need")]
+        public string Gender { get; set; }
+
+
+        public string StudentNo { get; set; }
+
+        public string Faulty { get; set; }
+
+        public string Major { get; set; }
+
+        public int CountryId { get; set; }
+
+        public string ProfessorGuid { get; set; }
+
+        //[Required(ErrorMessage = "Professor Id Need")]
+        public int ProfessorId { get; set; }
+
+        public string PhotoFileName { get; set; }
+
+        public string NickName { get; set; }
     }
 }
