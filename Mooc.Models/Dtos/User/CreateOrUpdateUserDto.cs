@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Mooc.DataAccess.Enums;
+//using Mooc.DataAccess.Enums;
 
 namespace Mooc.Models.Dtos.User
 {
@@ -29,12 +29,12 @@ namespace Mooc.Models.Dtos.User
         //[Required(ErrorMessage = "User Status Need")]
         public int UserState { get; set; }
         [Display(Name = "状态")]
-        public string StatusName => Enum.GetName(typeof(StatusEnum), UserState);
+        //public string StatusName => Enum.GetName(typeof(StatusEnum), UserState);
         //[Required(ErrorMessage = "Role Type Need")]
         public int RoleType { get; set; }
 
         [Display(Name = "角色")]
-        public string RoleName => Enum.GetName(typeof(RoleTypeEnum), RoleType);
+        //public string RoleName => Enum.GetName(typeof(RoleTypeEnum), RoleType);
 
         
         public DateTime? AddTime { get; set; }
@@ -43,7 +43,7 @@ namespace Mooc.Models.Dtos.User
         public string DisplayDate => Convert.ToDateTime(AddTime).ToString("yyyy-MM-dd");
         //[Required(ErrorMessage ="Gender Need")]
         public string Gender { get; set; }
-        public string GenderName => Enum.GetName(typeof(GenderEnum), Gender);
+        //public string GenderName => Enum.GetName(typeof(GenderEnum), Gender);
 
         public string StudentNo { get; set; }
 
