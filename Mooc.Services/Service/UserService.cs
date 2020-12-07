@@ -2,6 +2,7 @@
 using Mooc.DataAccess.Context;
 using Mooc.DataAccess.Entities;
 using Mooc.Models.Dtos.User;
+using Mooc.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,7 +10,7 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Mooc.DataAccess.Service
+namespace Mooc.Services.Service
 {
     public class UserService : IUserService
     {

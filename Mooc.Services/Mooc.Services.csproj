@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{83001F9C-34AC-4785-8EA3-7B639B13CD9E}</ProjectGuid>
+    <ProjectGuid>{2E54E776-CBF3-4C33-81ED-34064590085D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mooc.Models</RootNamespace>
-    <AssemblyName>Mooc.Models</AssemblyName>
+    <RootNamespace>Mooc.Services</RootNamespace>
+    <AssemblyName>Mooc.Services</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\..\Study\Mooc\Mooc.DataAccess\bin\Debug\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -42,6 +45,9 @@
     </Reference>
     <Reference Include="Mooc.DataAccess">
       <HintPath>..\..\..\Study\Mooc\Mooc.DataAccess\bin\Debug\Mooc.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Mooc.Models">
+      <HintPath>..\..\..\Study\Mooc\Mooc.DataAccess\bin\Debug\Mooc.Models.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -54,10 +60,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseEntityDto.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="Interfaces\IDependency.cs" />
+    <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Dtos\User\CreateOrUpdateUserDto.cs" />
-    <Compile Include="Dtos\User\UserDto.cs" />
+    <Compile Include="Service\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
