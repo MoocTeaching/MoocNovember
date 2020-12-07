@@ -18,7 +18,7 @@ namespace Mooc.Web.Tests.Controllers
         {
             // Arrange
             IUserService userService = UTestConfigHelper.ResolveServcie<IUserService>();
-            HomeController controller = new HomeController(userService);
+          //  HomeController controller = new HomeController(userService);
             // Act
             ViewResult result = controller.Index() as ViewResult;
             // Assert

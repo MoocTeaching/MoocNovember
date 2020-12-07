@@ -70,24 +70,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapper\MapperProfile.cs" />
+    <Compile Include="BaseEntityDto.cs" />
     <Compile Include="Context\DataContext.cs" />
     <Compile Include="Context\IDataContextProvider.cs" />
+    <Compile Include="Dtos\User\CreateOrUpdateUserDto.cs" />
+    <Compile Include="Dtos\User\UserDto.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\EntityConfig\StudentDbModelBuilder.cs" />
     <Compile Include="Entities\EntityConfig\UserDbModelBuilder.cs" />
     <Compile Include="Entities\Student.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Migrations\202011241443097_IntiDB.cs" />
-    <Compile Include="Migrations\202011241443097_IntiDB.designer.cs">
-      <DependentUpon>202011241443097_IntiDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011261314447_userUpdate.cs" />
-    <Compile Include="Migrations\202011261314447_userUpdate.designer.cs">
-      <DependentUpon>202011261314447_userUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012050220000_remote push.cs" />
-    <Compile Include="Migrations\202012050220000_remote push.designer.cs">
-      <DependentUpon>202012050220000_remote push.cs</DependentUpon>
+    <Compile Include="Enums\EnumModel.cs" />
+    <Compile Include="Migrations\202012050906244_20201205.cs" />
+    <Compile Include="Migrations\202012050906244_20201205.designer.cs">
+      <DependentUpon>202012050906244_20201205.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,24 +92,12 @@
     <Compile Include="Service\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mooc.Models\Mooc.Models.csproj">
-      <Project>{83001f9c-34ac-4785-8ea3-7b639b13cd9e}</Project>
-      <Name>Mooc.Models</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011241443097_IntiDB.resx">
-      <DependentUpon>202011241443097_IntiDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011261314447_userUpdate.resx">
-      <DependentUpon>202011261314447_userUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012050220000_remote push.resx">
-      <DependentUpon>202012050220000_remote push.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012050906244_20201205.resx">
+      <DependentUpon>202012050906244_20201205.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

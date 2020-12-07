@@ -1,7 +1,5 @@
-﻿using Mooc.DataAccess.Entities;
+﻿using Mooc.DataAccess.Dtos.User;
 using Mooc.DataAccess.Service;
-using Mooc.Models.Dtos.User;
-using System.Data.Entity;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -144,7 +142,7 @@ namespace Mooc.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
