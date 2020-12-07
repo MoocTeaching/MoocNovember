@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Mooc.DataAccess.Service;
+using Mooc.Services.Interfaces;
 using Mooc.Web;
 using Mooc.Web.Controllers;
 
@@ -54,3 +54,4 @@ namespace Mooc.Web.Tests.Controllers
         }
     }
 }
+

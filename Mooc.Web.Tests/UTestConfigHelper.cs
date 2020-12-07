@@ -1,15 +1,9 @@
 ﻿using Autofac;
-using Mooc.DataAccess.Context;
-using Mooc.DataAccess.Service;
+using Mooc.Services.Interfaces;
 using Mooc.Web.App_Start;
-using System;
-using System.Collections.Generic;
 
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Compilation;
 
 namespace Mooc.Web.Tests
 {

@@ -151,6 +151,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ISSSS.cs" />
     <Compile Include="Controllers\SSSS.cs" />
@@ -171,6 +172,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Views\web.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -204,6 +206,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Images\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Default\" />
@@ -229,6 +234,10 @@
     <ProjectReference Include="..\Mooc.Models\Mooc.Models.csproj">
       <Project>{83001f9c-34ac-4785-8ea3-7b639b13cd9e}</Project>
       <Name>Mooc.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mooc.Services\Mooc.Services.csproj">
+      <Project>{2E54E776-CBF3-4C33-81ED-34064590085D}</Project>
+      <Name>Mooc.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mooc.Utils\Mooc.Utils.csproj">
       <Project>{be0dc4db-3e3e-4c7d-99c1-b272d0f8def4}</Project>

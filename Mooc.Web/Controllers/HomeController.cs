@@ -1,5 +1,5 @@
-﻿using Mooc.DataAccess.Service;
-using Mooc.Models.Dtos.User;
+﻿using Mooc.Models.Dtos.User;
+using Mooc.Services.Interfaces;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
