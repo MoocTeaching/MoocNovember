@@ -106,9 +106,7 @@ namespace Mooc.Web.Controllers
             {
                 this._userService.Update(user);
             }
-
-            return View(user);
-
+                return View(user);
         }
 
         // GET: Users/Delete/5
@@ -130,30 +128,52 @@ namespace Mooc.Web.Controllers
             }
             var user = await this._userService.GetEditUser(id.Value);
 
-
-
-
-
             return View(user);
         }
 
         // POST: Users/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(int id)
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> DeleteConfirmed(int id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    var user = await this._userService.GetEditUser(id);
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        this._userService.Delete(user);
+        //    }
+
+        //    return RedirectToAction("Index");
+        //}
+
+        public ActionResult Login()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var user = await this._userService.GetEditUser(id);
+            return View();
+        }
 
-            if (ModelState.IsValid)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(string email, string password)
+        {
+            if(ModelState.IsValid)
             {
-                this._userService.Delete(user);
-            }
+                var list = _userService.GetLoginUser(email, password);
 
-            return RedirectToAction("Index");
+                if (list.Count > 0)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ViewBag.error = "login failed";
+                    return RedirectToAction("Login");
+                }
+            }
+            return View();
         }
     }
 }

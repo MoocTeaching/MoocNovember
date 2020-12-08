@@ -17,6 +17,9 @@ namespace Mooc.Services.Interfaces
         bool Update(CreateOrUpdateUserDto updateUser);
 
         bool Delete(CreateOrUpdateUserDto deleteUser);
-        //List<UserDto> GetUser(int id);
+        
+        List<UserDto> GetLoginUser(string email,string pw);
+
+
     }
 }

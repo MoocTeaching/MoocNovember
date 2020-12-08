@@ -88,5 +88,13 @@ namespace Mooc.Services.Service
             this._db.Users.Remove(user);
             return this._db.SaveChanges() > 0;
         }
+
+        public List<UserDto> GetLoginUser(string email, string password)
+        {
+            var user = _db.Users.Where(s => s.Email.Equals(email) && s.PassWord.Equals(password)).ToList();
+            if (user == null)
+                return null;
+            return Mapper.Map<List<UserDto>>(user);
+        }
     }
 }
