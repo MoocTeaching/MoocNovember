@@ -95,14 +95,16 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\IDependency.cs" />
-    <Compile Include="Service\IUserService.cs" />
-    <Compile Include="Service\UserService.cs" />
+    <Compile Include="Enums\StatusEnum.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mooc.Models\Mooc.Models.csproj">
       <Project>{83001f9c-34ac-4785-8ea3-7b639b13cd9e}</Project>
       <Name>Mooc.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mooc.Services\Mooc.Services.csproj">
+      <Project>{2E54E776-CBF3-4C33-81ED-34064590085D}</Project>
+      <Name>Mooc.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
