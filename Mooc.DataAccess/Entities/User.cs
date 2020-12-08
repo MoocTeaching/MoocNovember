@@ -33,7 +33,7 @@ namespace Mooc.DataAccess.Entities
 
         public string ProfessorGuid { get; set; }
 
-        public int ProfessorId { get; set; }
+        public long ProfessorId { get; set; }
 
         public string PhotoFileName { get; set; }
 
