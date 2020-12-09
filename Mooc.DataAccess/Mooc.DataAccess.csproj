@@ -81,13 +81,9 @@
     <Compile Include="Entities\Student.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Enums\EnumModel.cs" />
-    <Compile Include="Migrations\202012050906244_20201205.cs" />
-    <Compile Include="Migrations\202012050906244_20201205.designer.cs">
-      <DependentUpon>202012050906244_20201205.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012050619286_int to long.cs" />
-    <Compile Include="Migrations\202012050619286_int to long.designer.cs">
-      <DependentUpon>202012050619286_int to long.cs</DependentUpon>
+    <Compile Include="Migrations\202012091012398_20200912.cs" />
+    <Compile Include="Migrations\202012091012398_20200912.designer.cs">
+      <DependentUpon>202012091012398_20200912.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -100,11 +96,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202012050906244_20201205.resx">
-      <DependentUpon>202012050906244_20201205.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012050619286_int to long.resx">
-      <DependentUpon>202012050619286_int to long.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012091012398_20200912.resx">
+      <DependentUpon>202012091012398_20200912.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
