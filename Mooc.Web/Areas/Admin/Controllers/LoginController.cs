@@ -1,5 +1,10 @@
-﻿using System;
+﻿using Mooc.DataAccess.Context;
+using Mooc.DataAccess.Dtos.User;
+using Mooc.DataAccess.Entities;
+using Mooc.Utils;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -8,82 +13,67 @@ namespace Mooc.Web.Areas.Admin.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: Admin/Login
+        private readonly DataContext _dataContext;
+
+        public LoginController(DataContext dataContext)
+        {
+            _dataContext = dataContext;
+        }
+
+
         public ActionResult Index()
         {
-            return View();
+            return View("Login");
         }
 
-        // GET: Admin/Login/Details/5
-        public ActionResult Details(int id)
+
+        public ActionResult Login()
         {
             return View();
         }
 
-        // GET: Admin/Login/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Admin/Login/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public JsonResult loginPost(string username, string password)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            User user = _dataContext.Users.FirstOrDefault(m => m.UserName == username);
 
-                return RedirectToAction("Index");
-            }
-            catch
+            if (user != null)
             {
-                return View();
+                string pwd = MD5Help.MD5Encoding(password, ConfigurationManager.AppSettings["sKey"].ToString());
+                if (user.PassWord == pwd)
+                {
+                    //Response.Cookies.Add(new HttpCookie("username")
+                    //{
+                    //    Value = user.UserName,
+                    //    Expires = DateTime.Now.AddDays(7)
+                    //});
+
+                    CookieHelper.SetCookie("username", user.UserName, DateTime.Now.AddDays(7));
+                    CookieHelper.SetCookie("userid", user.Id.ToString(), DateTime.Now.AddDays(7));
+                    return Json(new { code = 0 });
+
+                }
+                return Json(new { code = 1, msg = "密码错误" });
             }
+            return Json(new { code = 1, msg = "错误" });
+
         }
 
-        // GET: Admin/Login/Edit/5
-        public ActionResult Edit(int id)
+
+
+
+        public ActionResult DeleteCookie()
         {
-            return View();
+            CookieHelper.DeleteCookie("username");
+            CookieHelper.DeleteCookie("userid");
+            //if (Request.Cookies["username"] != null)
+            //{
+            //    Response.Cookies["username"].Expires = DateTime.Now.AddDays(-1);
+            //}
+            return Redirect("~/Admin/Login/Index");
         }
 
-        // POST: Admin/Login/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Admin/Login/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Admin/Login/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
+
+
 }

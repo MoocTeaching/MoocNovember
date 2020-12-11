@@ -47,5 +47,15 @@ namespace Mooc.Models.Dtos.User
         public string PhotoFileName { get; set; }
 
         public string NickName { get; set; }
+
+        public string GenderName => Enum.GetName(typeof(GenderEnum), Gender);
+
+        [Display(Name = "角色")]
+        public string RoleName => Enum.GetName(typeof(RoleTypeEnum), RoleType);
+        [Display(Name = "状态")]
+        public string StatusName => Enum.GetName(typeof(StatusEnum), UserState);
+        [Display(Name = "创建时间")]
+        public string DisplayDate => Convert.ToDateTime(AddTime).ToString("yyyy-MM-dd");
+
     }
 }

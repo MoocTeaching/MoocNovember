@@ -1,4 +1,4 @@
-﻿using Mooc.Models.Dtos.User;
+﻿using Mooc.DataAccess.Dtos.User;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

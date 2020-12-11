@@ -1,5 +1,5 @@
-﻿using Mooc.Models.Dtos.User;
-using Mooc.Services.Interfaces;
+﻿using Mooc.DataAccess.Dtos.User;
+using Mooc.DataAccess.Service;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -106,7 +106,9 @@ namespace Mooc.Web.Controllers
             {
                 this._userService.Update(user);
             }
-                return View(user);
+
+            return View(user);
+
         }
 
         // GET: Users/Delete/5
@@ -128,52 +130,30 @@ namespace Mooc.Web.Controllers
             }
             var user = await this._userService.GetEditUser(id.Value);
 
+
+
+
+
             return View(user);
         }
 
         // POST: Users/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<ActionResult> DeleteConfirmed(int id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    var user = await this._userService.GetEditUser(id);
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        this._userService.Delete(user);
-        //    }
-
-        //    return RedirectToAction("Index");
-        //}
-
-        public ActionResult Login()
-        {
-            return View();
-        }
-
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(string email, string password)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            if(ModelState.IsValid)
+            if (id == 0)
             {
-                var list = _userService.GetLoginUser(email, password);
-
-                if (list.Count > 0)
-                {
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    ViewBag.error = "login failed";
-                    return RedirectToAction("Login");
-                }
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            return View();
+            var user = await this._userService.GetEditUser(id);
+
+            if (ModelState.IsValid)
+            {
+                this._userService.Delete(user);
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }

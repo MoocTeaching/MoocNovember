@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Mooc.DataAccess.Context;
+using Mooc.DataAccess.Dtos.User;
 using Mooc.DataAccess.Entities;
-using Mooc.Models.Dtos.User;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
