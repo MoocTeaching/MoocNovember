@@ -9,7 +9,7 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Mooc.DataAccess.Service
+namespace Mooc.Services.Service
 {
     public class UserService : IUserService
     {

@@ -2,7 +2,7 @@
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using Mooc.DataAccess.Context;
-using Mooc.DataAccess.Service;
+using Mooc.Services.Interfaces;
 using Mooc.Web.Controllers;
 using System;
 using System.Collections.Generic;
@@ -28,7 +28,7 @@ namespace Mooc.Web.App_Start
             var baseType = typeof(IDependency);
             //builder.RegisterType<DataContext>().AsSelf().InstancePerLifetimeScope();
             var assemblys = BuildManager.GetReferencedAssemblies().Cast<Assembly>();
-            List<string> inAssemblys = new List<string>() { "Mooc.DataAccess", "Mooc.Models", "Mooc.Utils","Mooc.Web" };
+            List<string> inAssemblys = new List<string>() { "Mooc.DataAccess", "Mooc.Models", "Mooc.Utils","Mooc.Web","Mooc.Services" };
        
             var aslist = assemblys.Where(p => inAssemblys.Contains(p.FullName.Split(new char[] { ','}, StringSplitOptions.RemoveEmptyEntries)[0]));
              //aslist = assemblys.ToArray();

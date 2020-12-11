@@ -116,6 +116,10 @@
       <Project>{83001F9C-34AC-4785-8EA3-7B639B13CD9E}</Project>
       <Name>Mooc.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Mooc.Services\Mooc.Services.csproj">
+      <Project>{2E54E776-CBF3-4C33-81ED-34064590085D}</Project>
+      <Name>Mooc.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mooc.Web\Mooc.Web.csproj">
       <Project>{59C5CC1A-B1C0-4C91-A92F-CE70D574A061}</Project>
       <Name>Mooc.Web</Name>

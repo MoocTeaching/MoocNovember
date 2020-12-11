@@ -5,5 +5,12 @@ MOOC Teaching
 
 2020-11-27 优化框架
 
-2020-12-05 Create Delete, Edit pages
+2020-12-05 HomeWork 1
+           Create Delete, Edit pages
            Modified Create, Details Pages  
+
+
+2020-12-08 HomeWork 2
+           Add Login page
+           Move Service Iservice into a new project
+           Add Enum in to model
