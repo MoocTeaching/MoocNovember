@@ -1,5 +1,6 @@
-﻿using Mooc.DataAccess.Dtos.User;
-using Mooc.DataAccess.Service;
+﻿using Mooc.Interface;
+using Mooc.Models.Dtos.User;
+using Mooc.Services;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;

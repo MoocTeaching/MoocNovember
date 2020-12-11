@@ -1,5 +1,5 @@
 ﻿using Mooc.DataAccess.Context;
-using Mooc.DataAccess.Dtos.User;
+using Mooc.Models.Dtos.User;
 using Mooc.DataAccess.Entities;
 using Mooc.Utils;
 using System;

@@ -2,7 +2,7 @@
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using Mooc.DataAccess.Context;
-using Mooc.Services.Interfaces;
+using Mooc.Interface;
 using Mooc.Web.Controllers;
 using System;
 using System.Collections.Generic;

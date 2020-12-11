@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Mooc.DataAccess.AutoMapper;
+using Mooc.Models.AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
