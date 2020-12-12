@@ -54,8 +54,8 @@
     <Reference Include="Autofac.Integration.WebApi, Version=4.3.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.WebApi2.4.3.1\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
     </Reference>
-    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -68,6 +68,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -155,8 +158,6 @@
     <Compile Include="Areas\Admin\Attribute\CheckAdminLoginAttribute.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
-    <Compile Include="Controllers\ISSSS.cs" />
-    <Compile Include="Controllers\SSSS.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -168,6 +169,15 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Login\animate-custom.css" />
+    <Content Include="Content\Login\demo.css" />
+    <Content Include="Content\Login\fonts\BebasNeue-webfont.svg" />
+    <Content Include="Content\Login\fonts\Dharma Type Font License.txt" />
+    <Content Include="Content\Login\fonts\fontomas-webfont.svg" />
+    <Content Include="Content\Login\fonts\franchise-bold-webfont.svg" />
+    <Content Include="Content\Login\style.css" />
+    <Content Include="Content\Login\style2.css" />
+    <Content Include="Content\Login\style3.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -176,7 +186,15 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\test\Index.cshtml" />
+    <Content Include="Content\Login\fonts\BebasNeue-webfont.eot" />
+    <Content Include="Content\Login\fonts\BebasNeue-webfont.ttf" />
+    <Content Include="Content\Login\fonts\BebasNeue-webfont.woff" />
+    <Content Include="Content\Login\fonts\fontomas-webfont.eot" />
+    <Content Include="Content\Login\fonts\fontomas-webfont.ttf" />
+    <Content Include="Content\Login\fonts\fontomas-webfont.woff" />
+    <Content Include="Content\Login\fonts\franchise-bold-webfont.eot" />
+    <Content Include="Content\Login\fonts\franchise-bold-webfont.ttf" />
+    <Content Include="Content\Login\fonts\franchise-bold-webfont.woff" />
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -232,9 +250,21 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mooc.DataAccess\Mooc.DataAccess.csproj">
-      <Project>{9532e425-15bf-4fb1-9a5b-763467400463}</Project>
-      <Name>Mooc.DataAccess</Name>
+    <ProjectReference Include="..\Mooc.Core\Mooc.Core.csproj">
+      <Project>{F1CAE952-8C3E-4A29-8513-3800AFFDB18C}</Project>
+      <Name>Mooc.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mooc.Dtos\Mooc.Dtos.csproj">
+      <Project>{74e183dd-dbaf-4399-a248-87f2ebdea189}</Project>
+      <Name>Mooc.Dtos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mooc.Services\Mooc.Services.csproj">
+      <Project>{2E54E776-CBF3-4C33-81ED-34064590085D}</Project>
+      <Name>Mooc.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mooc.Shared\Mooc.Shared.csproj">
+      <Project>{226be73c-4d27-4775-bf99-54d574e530b6}</Project>
+      <Name>Mooc.Shared</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mooc.Utils\Mooc.Utils.csproj">
       <Project>{be0dc4db-3e3e-4c7d-99c1-b272d0f8def4}</Project>

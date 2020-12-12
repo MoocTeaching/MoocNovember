@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
-using Mooc.DataAccess.Dtos.User;
-using Mooc.DataAccess.Entities;
+using Mooc.Dtos.User;
+using Mooc.Models.Entities;
 
-
-namespace Mooc.DataAccess.AutoMapper
+namespace Mooc.Services.AutoMapper
 {
     public class MapperProfile : Profile
     {

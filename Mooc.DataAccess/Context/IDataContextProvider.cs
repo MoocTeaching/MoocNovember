@@ -1,4 +1,4 @@
-﻿using Mooc.Services.Interfaces;
+﻿using Mooc.Core.IDependency;
 
 namespace Mooc.DataAccess.Context
 {

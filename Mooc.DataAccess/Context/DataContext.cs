@@ -1,12 +1,7 @@
-﻿using Mooc.DataAccess.Entities;
-using Mooc.DataAccess.Entities.EntityConfig;
-using System;
-using System.Collections.Generic;
+﻿using Mooc.DataAccess.Entities.EntityConfig;
+using Mooc.Models.Entities;
 using System.Configuration;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mooc.DataAccess.Context
 {

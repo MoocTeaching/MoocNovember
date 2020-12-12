@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mooc.DataAccess
+namespace Mooc.Dtos.Base
 {
     public abstract class BaseEntityDto<TKey> where TKey : struct
     {

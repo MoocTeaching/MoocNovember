@@ -1,12 +1,9 @@
-﻿using Mooc.DataAccess.Enums;
+﻿using Mooc.Dtos.Base;
+using Mooc.Shared.Enums;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Mooc.DataAccess.Dtos.User
+namespace Mooc.Dtos.User
 {
     public class UserDto : BaseEntityDto
     {

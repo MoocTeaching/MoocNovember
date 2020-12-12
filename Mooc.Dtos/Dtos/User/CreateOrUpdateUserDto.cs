@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Mooc.Dtos.Base;
+using System;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 //using Mooc.DataAccess.Enums;
 
-namespace Mooc.Models.Dtos.User
+namespace Mooc.Dtos.User
 {
     public class CreateOrUpdateUserDto : BaseEntityDto
     {

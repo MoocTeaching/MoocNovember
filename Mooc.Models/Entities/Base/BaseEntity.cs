@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mooc.DataAccess.Entities
+namespace Mooc.Models.Entities.Base
 {
     public abstract class BaseEntity<TKey> where TKey : struct
     {

@@ -11,13 +11,17 @@ namespace Mooc.Web.Areas.Admin.Attribute
     {
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
-            if (filterContext.HttpContext.Request.Cookies["username"] == null || filterContext.HttpContext.Request.Cookies["userid"] == null)
+
+            if (filterContext.HttpContext.Session["userid"] == null)
             {
-                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary()
+                if (filterContext.HttpContext.Request.Cookies["userid"] == null)
                 {
-                    {"controller","Account" },
-                    {"action","Login" }
+                    filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary()
+                {
+                    {"controller","Login" },
+                    {"action","Index" }
                 });
+                }
             }
         }
     }

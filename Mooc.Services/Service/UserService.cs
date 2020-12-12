@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Mooc.DataAccess.Context;
-using Mooc.DataAccess.Entities;
-using Mooc.Models.Dtos.User;
+using Mooc.Dtos.User;
+using Mooc.Models.Entities;
 using Mooc.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -95,6 +95,14 @@ namespace Mooc.Services.Service
             if (user == null)
                 return null;
             return Mapper.Map<List<UserDto>>(user);
+        }
+
+        public async Task<UserDto> GetUser(string userName)
+        {
+            var user = await _db.Users.FirstOrDefaultAsync(p => p.UserName == userName);
+            if (user == null)
+                return null;
+            return Mapper.Map<UserDto>(user);
         }
     }
 }

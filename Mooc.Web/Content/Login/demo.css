@@ -160,4 +160,14 @@ a{
 	background: rgba(255,255,255,0.9);
 	box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
 }
+.logindiv {
+   margin:100px auto; width:330px;height:230px;
+}
+.logintitle {
+    margin-top:15px;
+}
+.loginlabel
+{
+    margin-top:15px;
+}
 

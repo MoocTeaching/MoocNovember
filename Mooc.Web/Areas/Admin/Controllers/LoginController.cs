@@ -1,29 +1,23 @@
-﻿using Mooc.DataAccess.Context;
-using Mooc.DataAccess.Dtos.User;
-using Mooc.DataAccess.Entities;
+﻿using Mooc.Services.Interfaces;
 using Mooc.Utils;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Web;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace Mooc.Web.Areas.Admin.Controllers
 {
     public class LoginController : Controller
     {
-        private readonly DataContext _dataContext;
 
-        public LoginController(DataContext dataContext)
+        private readonly IUserService _userService = null;
+        public LoginController(IUserService userService)
         {
-            _dataContext = dataContext;
+            this._userService = userService;
         }
-
-
         public ActionResult Index()
         {
-            return View("Login");
+            return View();
         }
 
 
@@ -33,30 +27,41 @@ namespace Mooc.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public JsonResult loginPost(string username, string password)
+        public async Task<JsonResult> loginPost(string username, string password,bool IsRem)
         {
-            User user = _dataContext.Users.FirstOrDefault(m => m.UserName == username);
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                return Json(new { code = 1, msg = "用户名和密码不能为空" });
+            }
+
+            var user = await this._userService.GetUser(username);
 
             if (user != null)
             {
                 string pwd = MD5Help.MD5Encoding(password, ConfigurationManager.AppSettings["sKey"].ToString());
                 if (user.PassWord == pwd)
                 {
-                    //Response.Cookies.Add(new HttpCookie("username")
-                    //{
-                    //    Value = user.UserName,
-                    //    Expires = DateTime.Now.AddDays(7)
-                    //});
+                    if (!IsRem)
+                    {
+                        //CookieHelper.SetCookie("username", user.UserName, DateTime.Now.AddMinutes(7));
+                        //CookieHelper.SetCookie("userid", user.Id.ToString(), DateTime.Now.AddDays(7));
+                        Session["userid"] = user;
+                    }
+                    else
+                    {
+                        CookieHelper.SetCookie("username", user.UserName, DateTime.Now.AddDays(30));
+                        CookieHelper.SetCookie("userid", user.Id.ToString(), DateTime.Now.AddDays(30));
+                    }
+                   
 
-                    CookieHelper.SetCookie("username", user.UserName, DateTime.Now.AddDays(7));
-                    CookieHelper.SetCookie("userid", user.Id.ToString(), DateTime.Now.AddDays(7));
+                    //CookieHelper.SetCookie("username", user.UserName, DateTime.Now.AddDays(7));
+                    //CookieHelper.SetCookie("userid", user.Id.ToString(), DateTime.Now.AddDays(7));
                     return Json(new { code = 0 });
-
+                   
                 }
                 return Json(new { code = 1, msg = "密码错误" });
             }
             return Json(new { code = 1, msg = "错误" });
-
         }
 
 
