@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mooc.Models", "Mooc.Models\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mooc.Services", "Mooc.Services\Mooc.Services.csproj", "{2E54E776-CBF3-4C33-81ED-34064590085D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mooc.Interface", "Interface\Mooc.Interface.csproj", "{7B8BA14F-EB05-48A6-827F-E03F381F006A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{2E54E776-CBF3-4C33-81ED-34064590085D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E54E776-CBF3-4C33-81ED-34064590085D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E54E776-CBF3-4C33-81ED-34064590085D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B8BA14F-EB05-48A6-827F-E03F381F006A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B8BA14F-EB05-48A6-827F-E03F381F006A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B8BA14F-EB05-48A6-827F-E03F381F006A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B8BA14F-EB05-48A6-827F-E03F381F006A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{9532E425-15BF-4FB1-9A5B-763467400463} = {A6F54E9C-7DB6-4485-8047-898AD518F426}
 		{83001F9C-34AC-4785-8EA3-7B639B13CD9E} = {A6F54E9C-7DB6-4485-8047-898AD518F426}
 		{2E54E776-CBF3-4C33-81ED-34064590085D} = {A6F54E9C-7DB6-4485-8047-898AD518F426}
+		{7B8BA14F-EB05-48A6-827F-E03F381F006A} = {A6F54E9C-7DB6-4485-8047-898AD518F426}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C105CA6E-7477-4AC7-A2A7-C5DE70862E39}

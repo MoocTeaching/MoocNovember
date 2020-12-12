@@ -1,5 +1,4 @@
 ﻿using Mooc.DataAccess.Context;
-using Mooc.Models.Dtos.User;
 using Mooc.DataAccess.Entities;
 using Mooc.Utils;
 using System;
@@ -9,24 +8,22 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Mooc.Web.Areas.Admin.Controllers
+namespace Mooc.Web.Controllers
 {
     public class LoginController : Controller
     {
         private readonly DataContext _dataContext;
 
-        public LoginController(DataContext dataContext)
-        {
-            _dataContext = dataContext;
-        }
-
-
+        // GET: Login
         public ActionResult Index()
         {
             return View("Login");
         }
 
-
+        public LoginController(DataContext dataContext)
+        {
+            _dataContext = dataContext;
+        }
         public ActionResult Login()
         {
             return View();
@@ -42,38 +39,14 @@ namespace Mooc.Web.Areas.Admin.Controllers
                 string pwd = MD5Help.MD5Encoding(password, ConfigurationManager.AppSettings["sKey"].ToString());
                 if (user.PassWord == pwd)
                 {
-                    //Response.Cookies.Add(new HttpCookie("username")
-                    //{
-                    //    Value = user.UserName,
-                    //    Expires = DateTime.Now.AddDays(7)
-                    //});
-
                     CookieHelper.SetCookie("username", user.UserName, DateTime.Now.AddDays(7));
                     CookieHelper.SetCookie("userid", user.Id.ToString(), DateTime.Now.AddDays(7));
                     return Json(new { code = 0 });
-
                 }
-                return Json(new { code = 1, msg = "密码错误" });
+                return Json(new { code = 1, msg = "Wrong Password!" });
             }
-            return Json(new { code = 1, msg = "错误" });
-
-        }
-
-
-
-
-        public ActionResult DeleteCookie()
-        {
-            CookieHelper.DeleteCookie("username");
-            CookieHelper.DeleteCookie("userid");
-            //if (Request.Cookies["username"] != null)
-            //{
-            //    Response.Cookies["username"].Expires = DateTime.Now.AddDays(-1);
-            //}
-            return Redirect("~/Admin/Login/Index");
+            return Json(new { code = 1, msg = "Wrong Information" });
         }
 
     }
-
-
 }

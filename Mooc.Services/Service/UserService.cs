@@ -2,7 +2,7 @@
 using Mooc.DataAccess.Context;
 using Mooc.DataAccess.Entities;
 using Mooc.Models.Dtos.User;
-using Mooc.Services.Interfaces;
+using Mooc.Interface;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

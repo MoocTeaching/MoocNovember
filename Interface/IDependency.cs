@@ -1,15 +1,13 @@
-﻿using Mooc.Interface;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mooc.Web.Controllers
+namespace Mooc.Interface
+
 {
-   public interface ISSSS: IDependency
+    public interface IDependency
     {
-
-
     }
 }

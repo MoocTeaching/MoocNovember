@@ -154,8 +154,8 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Attribute\CheckAdminLoginAttribute.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
-    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Controllers\ISSSS.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SSSS.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -168,6 +168,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Logintmp\css\bootstrap.min.css" />
+    <Content Include="Content\Logintmp\index.html" />
+    <Content Include="Content\Logintmp\js\bootstrap.min.js" />
+    <Content Include="Content\Logintmp\js\jquery-1.12.4.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -202,12 +206,12 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Users\Create.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -216,7 +220,6 @@
     <Folder Include="Images\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Default\" />
-    <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -232,9 +235,21 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Interface\Mooc.Interface.csproj">
+      <Project>{7b8ba14f-eb05-48a6-827f-e03f381f006a}</Project>
+      <Name>Mooc.Interface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mooc.DataAccess\Mooc.DataAccess.csproj">
       <Project>{9532e425-15bf-4fb1-9a5b-763467400463}</Project>
       <Name>Mooc.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mooc.Models\Mooc.Models.csproj">
+      <Project>{83001F9C-34AC-4785-8EA3-7B639B13CD9E}</Project>
+      <Name>Mooc.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mooc.Services\Mooc.Services.csproj">
+      <Project>{2e54e776-cbf3-4c33-81ed-34064590085d}</Project>
+      <Name>Mooc.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mooc.Utils\Mooc.Utils.csproj">
       <Project>{be0dc4db-3e3e-4c7d-99c1-b272d0f8def4}</Project>

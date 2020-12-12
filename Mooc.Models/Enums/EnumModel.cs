@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Mooc.DataAccess.Enums
+namespace Mooc.Models.Enums
 {
     public enum RoleTypeEnum
     {

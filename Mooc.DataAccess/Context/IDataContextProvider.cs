@@ -1,4 +1,4 @@
-﻿using Mooc.Services.Interfaces;
+﻿using Mooc.Interface;
 
 namespace Mooc.DataAccess.Context
 {
