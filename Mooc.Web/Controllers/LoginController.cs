@@ -47,6 +47,15 @@ namespace Mooc.Web.Controllers
             }
             return Json(new { code = 1, msg = "Wrong Information" });
         }
-
+        public ActionResult DeleteCookie()
+        {
+            CookieHelper.DeleteCookie("username");
+            CookieHelper.DeleteCookie("userid");
+            //if (Request.Cookies["username"] != null)
+            //{
+            //    Response.Cookies["username"].Expires = DateTime.Now.AddDays(-1);
+            //}
+            return Redirect("~/Login/Index");
+        }
     }
 }
