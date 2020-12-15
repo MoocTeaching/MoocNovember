@@ -53,18 +53,42 @@ namespace Mooc.Web.Controllers
         // POST: Users/Create
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "Id,UserName,PassWord,Email,UserState,RoleType,AddTime")] CreateOrUpdateUserDto user)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        this._userService.Add(user);
+        //    }
+
+        //    return View(user);
+        //}
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,UserName,PassWord,Email,UserState,RoleType,AddTime")] CreateOrUpdateUserDto user)
+        public async Task<JsonResult> createPost(string username, string gender, string role, string major)
         {
-            if (ModelState.IsValid)
+            CreateOrUpdateUserDto addusr = new CreateOrUpdateUserDto();
+
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(gender) || string.IsNullOrEmpty(role) || string.IsNullOrEmpty(major))
             {
-                this._userService.Add(user);
+                return Json(new { code = 1, msg = "用户名，性别，角色，专业不能为空" });
             }
-
-            return View(user);
+            else
+            { 
+            //
+            //Add user to db.
+            //
+            addusr.UserName = username;
+            addusr.Gender = gender;
+            //addusr.RoleType = ;
+            addusr.Major = major;
+            
+            this._userService.Add(addusr);
+            
+                return Json(new { code = 0 });
+            }
         }
-
         // GET: Users/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {

@@ -158,6 +158,7 @@
     <Compile Include="Areas\Admin\Attribute\CheckAdminLoginAttribute.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserLoginController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -226,6 +227,7 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -234,7 +236,6 @@
     <Folder Include="Images\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Default\" />
-    <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -259,7 +260,7 @@
       <Name>Mooc.Dtos</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mooc.Services\Mooc.Services.csproj">
-      <Project>{2E54E776-CBF3-4C33-81ED-34064590085D}</Project>
+      <Project>{2e54e776-cbf3-4c33-81ed-34064590085d}</Project>
       <Name>Mooc.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mooc.Shared\Mooc.Shared.csproj">

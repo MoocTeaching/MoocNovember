@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Mooc.Dtos.User.UserDto>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "用户列表";
 }
 
 <h2>Index</h2>
@@ -15,10 +15,10 @@
             @Html.DisplayNameFor(model => model.UserName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PassWord)
+            @Html.DisplayNameFor(model => model.Gender)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayNameFor(model => model.RoleType)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.StatusName)
@@ -27,7 +27,7 @@
             @Html.DisplayNameFor(model => model.RoleName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AddTime)
+            @Html.DisplayNameFor(model => model.Major)
         </th>
         <th></th>
     </tr>
@@ -39,10 +39,10 @@
                 @Html.DisplayFor(modelItem => item.UserName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PassWord)
+                @Html.DisplayFor(modelItem => item.Gender)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Email)
+                @Html.DisplayFor(modelItem => item.RoleType)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StatusName)
@@ -51,12 +51,12 @@
                 @Html.DisplayFor(modelItem => item.RoleName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AddTime)
+                @Html.DisplayFor(modelItem => item.Major)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id },new { onclick = "return confirm('确定删除吗？');" })
+                @Html.ActionLink("修改", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("锁定", "Lock", new { id = item.Id }) |
+                @Html.ActionLink("重置密码", "Reset", new { id = item.Id },new { onclick = "return confirm('您要重置密码？');" })
             </td>
         </tr>
     }

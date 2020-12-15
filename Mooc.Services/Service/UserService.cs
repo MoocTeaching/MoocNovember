@@ -99,7 +99,7 @@ namespace Mooc.Services.Service
 
         public async Task<UserDto> GetUser(string userName)
         {
-            var user = await _db.Users.FirstOrDefaultAsync(p => p.UserName == userName);
+            User user = await _db.Users.FirstOrDefaultAsync(p => p.UserName == userName);
             if (user == null)
                 return null;
             return Mapper.Map<UserDto>(user);
