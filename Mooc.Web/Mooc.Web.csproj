@@ -222,12 +222,13 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Create.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Delete.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -254,6 +255,10 @@
     <ProjectReference Include="..\Mooc.Core\Mooc.Core.csproj">
       <Project>{F1CAE952-8C3E-4A29-8513-3800AFFDB18C}</Project>
       <Name>Mooc.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mooc.DataAccess\Mooc.DataAccess.csproj">
+      <Project>{9532e425-15bf-4fb1-9a5b-763467400463}</Project>
+      <Name>Mooc.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mooc.Dtos\Mooc.Dtos.csproj">
       <Project>{74e183dd-dbaf-4399-a248-87f2ebdea189}</Project>
